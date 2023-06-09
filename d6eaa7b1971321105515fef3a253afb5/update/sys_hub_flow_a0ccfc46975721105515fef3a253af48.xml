@@ -1,0 +1,2326 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <internal_name>car_reservation_approve_flow</internal_name>
+        <label_cache>[{"name":"Created_1.current.email","label":"Trigger - Record Created➛car_reserve Record➛Email","reference":"","reference_display":"Email","type":"string","base_type":"string","parent_table_name":"x_1067756_carparki_car_reserve","column_name":"email"},{"name":"94ae8633-feda-49d3-b552-3d9952894a47.__dont_treat_as_error__","label":"2 - Submit Catalog Item Request➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"boolean","visible_in_ui":"false","action_error_output":"true"}},{"name":"94ae8633-feda-49d3-b552-3d9952894a47.__action_status__","label":"2 - Submit Catalog Item Request➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"co_type_name":"FDACTIONSTATUS","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"object","action_error_output":"true"}},{"name":"94ae8633-feda-49d3-b552-3d9952894a47.error_message","label":"2 - Submit Catalog Item Request➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"7cf3e70c-55c1-42c4-811a-c6b7ec1692b9"}},{"name":"94ae8633-feda-49d3-b552-3d9952894a47.requested_item","label":"2 - Submit Catalog Item Request➛Requested Item","reference":"sc_req_item","reference_display":"Requested Item","type":"document_id","base_type":"document_id","attributes":{"uiTypeLabel":"Document ID","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"document_id","uiUniqueId":"aad3452b-309c-469c-9797-4df9ef6f86be"}},{"name":"94ae8633-feda-49d3-b552-3d9952894a47.status","label":"2 - Submit Catalog Item Request➛Status","reference_display":"Status","type":"choice","base_type":"choice","choices":[{"label":"Success","value":"0","order":0.0},{"label":"Error","value":"1","order":1.0},{"label":"Timeout","value":"2","order":2.0}],"attributes":{"uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice","uiUniqueId":"eacb2914-9214-441b-ac02-5703c4d8b6ee"}},{"name":"{{static.6816f79cc0a8016401c5a33be04be441}}","label":"System Administrator","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference"},{"name":"702f7997-6313-4cf3-8fad-5159704207f4.__dont_treat_as_error__","label":"8 - Send Email➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"702f7997-6313-4cf3-8fad-5159704207f4.__action_status__","label":"8 - Send Email➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"702f7997-6313-4cf3-8fad-5159704207f4.email","label":"8 - Send Email➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.cost","label":"1 - Get Catalog Variables➛cost","reference":"","reference_display":"cost","type":"string","base_type":"string","attributes":{"catalogType":"6","catalogTypeLabel":"Single Line Text"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.duration","label":"1 - Get Catalog Variables➛duration","reference":"","reference_display":"duration","type":"string","base_type":"string","attributes":{"catalogType":"6","catalogTypeLabel":"Single Line Text"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.location","label":"1 - Get Catalog Variables➛location","reference":"","reference_display":"location","type":"choice","base_type":"choice","choices":[{"label":"-- None --","value":"","order":100.0},{"label":"West1","value":"west_1","order":100.0},{"label":"East1","value":"east_1","order":100.0},{"label":"Central1","value":"central_1","order":100.0}],"attributes":{"catalogType":"5","catalogTypeLabel":"Select Box"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.end_date","label":"1 - Get Catalog Variables➛end_date","reference":"","reference_display":"end_date","type":"glide_date_time","base_type":"glide_date_time","attributes":{"catalogType":"10","catalogTypeLabel":"Date/Time"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.start_date","label":"1 - Get Catalog Variables➛start_date","reference":"","reference_display":"start_date","type":"glide_date_time","base_type":"glide_date_time","attributes":{"catalogType":"10","catalogTypeLabel":"Date/Time"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.car_type","label":"1 - Get Catalog Variables➛car_type","reference":"","reference_display":"car_type","type":"choice","base_type":"choice","choices":[{"label":"City Car","value":"car","order":100.0},{"label":"ETC","value":"etc","order":100.0},{"label":"EV Car","value":"ev_car","order":100.0},{"label":"SUV Car","value":"suv","order":100.0},{"label":"Van","value":"van","order":100.0}],"attributes":{"catalogType":"5","catalogTypeLabel":"Select Box"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.vehicle_number","label":"1 - Get Catalog Variables➛vehicle_number","reference":"","reference_display":"vehicle_number","type":"string","base_type":"string","attributes":{"catalogType":"6","catalogTypeLabel":"Single Line Text"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.phone","label":"1 - Get Catalog Variables➛phone","reference":"","reference_display":"phone","type":"string","base_type":"string","attributes":{"catalogType":"6","catalogTypeLabel":"Single Line Text"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.email","label":"1 - Get Catalog Variables➛email","reference":"","reference_display":"email","type":"string","base_type":"string","attributes":{"catalogType":"6","catalogTypeLabel":"Single Line Text"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.username","label":"1 - Get Catalog Variables➛username","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","attributes":{"catalogType":"8","catalogTypeLabel":"Reference"}},{"name":"0b2e1c8d-b534-4462-a204-edaa009672c9.__dont_treat_as_error__","label":"5 - Send Email➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"0b2e1c8d-b534-4462-a204-edaa009672c9.__action_status__","label":"5 - Send Email➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"0b2e1c8d-b534-4462-a204-edaa009672c9.email","label":"5 - Send Email➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ac4f72e7-eba9-46e3-b670-84d41b1f198f.__dont_treat_as_error__","label":"7 - Update Record➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ac4f72e7-eba9-46e3-b670-84d41b1f198f.__action_status__","label":"7 - Update Record➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ac4f72e7-eba9-46e3-b670-84d41b1f198f.table_name","label":"7 - Update Record➛car_reserve Table","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ac4f72e7-eba9-46e3-b670-84d41b1f198f.record","label":"7 - Update Record➛car_reserve Record","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"73dcc223-d2f3-4d9d-942a-fb9ed903366d.__dont_treat_as_error__","label":"4 - Update Record➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"73dcc223-d2f3-4d9d-942a-fb9ed903366d.__action_status__","label":"4 - Update Record➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"73dcc223-d2f3-4d9d-942a-fb9ed903366d.table_name","label":"4 - Update Record➛car_reserve Table","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"73dcc223-d2f3-4d9d-942a-fb9ed903366d.record","label":"4 - Update Record➛car_reserve Record","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created_1.run_start_date_time","label":"Trigger - Record Created➛Run Start Date/Time","type":"glide_date_time","base_type":"glide_date_time","attributes":{"test_input_hidden":"true"}},{"name":"{{static.1d014dca975721105515fef3a253af51}}","label":"Car Reservation Admin","reference":"sys_user_group","reference_display":"Group","type":"reference","base_type":"reference"},{"name":"32263cf7-d59a-4f78-b371-309cb2193d2b.__dont_treat_as_error__","label":"2 - Ask For Approval➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"32263cf7-d59a-4f78-b371-309cb2193d2b.__action_status__","label":"2 - Ask For Approval➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"32263cf7-d59a-4f78-b371-309cb2193d2b.approval_state","label":"2 - Ask For Approval➛Approval State","reference_display":"Approval State","type":"choice","base_type":"choice","choices":[{"label":"-- None --","value":"","order":0.0},{"label":"Not Yet Requested","value":"not requested","order":1.0},{"label":"Requested","value":"requested","order":2.0},{"label":"Approved","value":"approved","order":3.0},{"label":"Rejected","value":"rejected","order":4.0},{"label":"Cancelled","value":"cancelled","order":5.0},{"label":"No Longer Required","value":"not_required","order":6.0},{"label":"Skipped","value":"skipped","order":7.0}],"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"2216aa09-2e8f-425c-8631-3dba66523bd7.record","label":"2 - Update Record➛car_reserve Record","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"2216aa09-2e8f-425c-8631-3dba66523bd7.table_name","label":"2 - Update Record➛car_reserve Table","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"2216aa09-2e8f-425c-8631-3dba66523bd7.__action_status__","label":"2 - Update Record➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"2216aa09-2e8f-425c-8631-3dba66523bd7.__dont_treat_as_error__","label":"2 - Update Record➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created_1.current","label":"Trigger - Record Created➛car_reserve Record","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"reference","base_type":"reference","attributes":{}},{"name":"Created_1.current.sys_created_on","label":"Trigger - Record Created➛car_reserve Record➛Created","reference":"","reference_display":"Created","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"x_1067756_carparki_car_reserve","column_name":"sys_created_on"},{"name":"Created_1.run_start_time","label":"Trigger - Record Created➛Run Start Time UTC","type":"glide_date_time","base_type":"glide_date_time","attributes":{"test_input_hidden":"true"}},{"name":"{{static.193577bd971321105515fef3a253af00}}","label":"Cat Satan","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference"},{"name":"207a5836-fba5-421d-af43-d931f60af539.record","label":"2 - Update Record➛Record","reference_display":"Record","type":"document_id","base_type":"document_id","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"207a5836-fba5-421d-af43-d931f60af539.table_name","label":"2 - Update Record➛Table","reference_display":"Table","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"207a5836-fba5-421d-af43-d931f60af539.__action_status__","label":"2 - Update Record➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"co_type_name":"FDACTIONSTATUS","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"object","action_error_output":"true"}},{"name":"207a5836-fba5-421d-af43-d931f60af539.__dont_treat_as_error__","label":"2 - Update Record➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"boolean","visible_in_ui":"false","action_error_output":"true"}}]</label_cache>
+        <master_snapshot>7ebe4d0e979721105515fef3a253af9d</master_snapshot>
+        <name>Car Reservation Approve Flow</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>4a56f94a975b21105515fef3a253af71</remote_trigger_id>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 11:02:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a0ccfc46975721105515fef3a253af48</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>Car Reservation Approve Flow</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name>sys_hub_flow_a0ccfc46975721105515fef3a253af48</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:20</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=a0ccfc46975721105515fef3a253af48"/>
+    <sys_variable_value action="delete_multiple" query="document_key=a0ccfc46975721105515fef3a253af48"/>
+    <sys_flow_record_trigger action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition table="x_1067756_carparki_car_reserve">^EQ<item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <name/>
+        <on_delete>false</on_delete>
+        <on_insert>true</on_insert>
+        <on_update>false</on_update>
+        <run_flow_in>background</run_flow_in>
+        <run_on_extended>false</run_on_extended>
+        <run_when_setting>both</run_when_setting>
+        <run_when_user_list/>
+        <run_when_user_setting>any</run_when_user_setting>
+        <sys_class_name>sys_flow_record_trigger</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 15:14:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4a56f94a975b21105515fef3a253af71</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:20</sys_updated_on>
+        <table>x_1067756_carparki_car_reserve</table>
+    </sys_flow_record_trigger>
+    <sys_trigger_runner_mapping action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <identifier>a0ccfc46975721105515fef3a253af48</identifier>
+        <runner>FDTriggerRunner</runner>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 15:14:20</sys_created_on>
+        <sys_id>c256f94a975b21105515fef3a253af72</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:20</sys_updated_on>
+        <trigger display_value="">4a56f94a975b21105515fef3a253af71</trigger>
+    </sys_trigger_runner_mapping>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=a0ccfc46975721105515fef3a253af48^sys_idNOT INc256f94a975b21105515fef3a253af72"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=a0ccfc46975721105515fef3a253af48^sys_idNOT IN556a49c6979721105515fef3a253afa9"/>
+    <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <name>Created</name>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:02:19</sys_created_on>
+        <sys_id>556a49c6979721105515fef3a253afa9</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:20</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=556a49c6979721105515fef3a253afa9"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>556a49c6979721105515fef3a253afa9</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:02:19</sys_created_on>
+        <sys_id>156a49c6979721105515fef3a253afaa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:02:19</sys_updated_on>
+        <value>^EQ</value>
+        <variable display_value="Condition">66aadea0c31322002841b63b12d3aebf</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>556a49c6979721105515fef3a253afa9</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:02:19</sys_created_on>
+        <sys_id>1d6a49c6979721105515fef3a253afaa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:02:19</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">cfca92e0c31322002841b63b12d3ae00</variable>
+    </sys_variable_value>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=a0ccfc46975721105515fef3a253af48^sys_idNOT IN624e740a975721105515fef3a253afdc,6e4e740a975721105515fef3a253afdb,ea4e740a975721105515fef3a253afdb"/>
+    <sys_hub_flow_stage action="INSERT_OR_UPDATE">
+        <always_show>true</always_show>
+        <ancestor_array_position>0</ancestor_array_position>
+        <ancestor_component_id/>
+        <ancestor_stage_id/>
+        <ancestral_if_else_logic/>
+        <component_indexes>3</component_indexes>
+        <duration/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <label>Request Cancelled</label>
+        <order>1</order>
+        <stage_id>b6d91bbf-0b77-49db-b13a-6d0006c18eaf</stage_id>
+        <states>{"pending":"Pending - has not started","in_progress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 11:09:25</sys_created_on>
+        <sys_id>624e740a975721105515fef3a253afdc</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:05:06</sys_updated_on>
+        <type>standard</type>
+        <value>rejected</value>
+    </sys_hub_flow_stage>
+    <sys_hub_flow_stage action="INSERT_OR_UPDATE">
+        <always_show>true</always_show>
+        <ancestor_array_position>0</ancestor_array_position>
+        <ancestor_component_id/>
+        <ancestor_stage_id/>
+        <ancestral_if_else_logic/>
+        <component_indexes>1</component_indexes>
+        <duration/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <label>Waiting for Approval</label>
+        <order>0</order>
+        <stage_id>3c403338-e17e-41a1-89de-fe1836353115</stage_id>
+        <states>{"pending":"Pending - has not started","in_progress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 11:09:25</sys_created_on>
+        <sys_id>6e4e740a975721105515fef3a253afdb</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:05:06</sys_updated_on>
+        <type>standard</type>
+        <value>requested</value>
+    </sys_hub_flow_stage>
+    <sys_hub_flow_stage action="INSERT_OR_UPDATE">
+        <always_show>true</always_show>
+        <ancestor_array_position>0</ancestor_array_position>
+        <ancestor_component_id/>
+        <ancestor_stage_id/>
+        <ancestral_if_else_logic/>
+        <component_indexes>6</component_indexes>
+        <duration/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <label>Request Approved</label>
+        <order>2</order>
+        <stage_id>d9636049-6ce9-41c4-b206-2b6230eaf9b8</stage_id>
+        <states>{"pending":"Pending - has not started","in_progress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 11:09:25</sys_created_on>
+        <sys_id>ea4e740a975721105515fef3a253afdb</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:22:29</sys_updated_on>
+        <type>standard</type>
+        <value>approved</value>
+    </sys_hub_flow_stage>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=a0ccfc46975721105515fef3a253af48^sys_idNOT INacccfc46975721105515fef3a253af49"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>a0ccfc46975721105515fef3a253af48</id>
+        <name>Car Reservation Approve Flow</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 11:02:44</sys_created_on>
+        <sys_id>acccfc46975721105515fef3a253af49</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 11:02:44</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=acccfc46975721105515fef3a253af49"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=a0ccfc46975721105515fef3a253af48^sys_idNOT IN156a09c6979721105515fef3a253af44,d16a49c6979721105515fef3a253afa4"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</model>
+        <model_id>a0ccfc46975721105515fef3a253af48</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_a0ccfc46975721105515fef3a253af48</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:02:18</sys_created_on>
+        <sys_id>156a09c6979721105515fef3a253af44</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:20</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</model>
+        <model_id>a0ccfc46975721105515fef3a253af48</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_a0ccfc46975721105515fef3a253af48</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:02:18</sys_created_on>
+        <sys_id>d16a49c6979721105515fef3a253afa4</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:20</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_output action="delete_multiple" query="model=a0ccfc46975721105515fef3a253af48"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=a0ccfc46975721105515fef3a253af48"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=a0ccfc46975721105515fef3a253af48^sys_idNOT IN06eb814a979721105515fef3a253afa1,0aeb814a979721105515fef3a253afb5,1aeb814a979721105515fef3a253afd8,46eb814a979721105515fef3a253afaa,82eb814a979721105515fef3a253afbd,8eeb814a979721105515fef3a253afd0"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Get Catalog Variables">330ba3abc31013002841b63b12d3aee8</action_type>
+        <action_type_parent/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>06eb814a979721105515fef3a253afa1</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin.system</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:15:25</sys_updated_on>
+        <ui_id>7ad07668-4dba-485c-8800-b884999f2c72</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=06eb814a979721105515fef3a253afa1"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>06eb814a979721105515fef3a253afa1</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>46eb814a979721105515fef3a253afa3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <value>e2e13f79971321105515fef3a253af04</value>
+        <variable display_value="Template Catalog Items and Variable Sets">bb0ba3abc31013002841b63b12d3aef1</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>06eb814a979721105515fef3a253afa1</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>82eb814a979721105515fef3a253afa3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <value>fae177b9971321105515fef3a253af07:item_option_new,fee177b9971321105515fef3a253af36:item_option_new,bae177b9971321105515fef3a253af2f:item_option_new,b6e177b9971321105515fef3a253af0e:item_option_new,eee137b9971321105515fef3a253afc7:item_option_new,b2e177b9971321105515fef3a253af15:item_option_new,72e177b9971321105515fef3a253af1c:item_option_new,ee8b7446975721105515fef3a253af54:item_option_new,975dd0c697d321105515fef3a253af52:item_option_new,c7e177b9971321105515fef3a253af3e:item_option_new</value>
+        <variable display_value="Catalog Variables">7b0ba3abc31013002841b63b12d3aef7</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=06eb814a979721105515fef3a253afa1"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>catalog_variables</field>
+        <id>06eb814a979721105515fef3a253afa1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>8aeb814a979721105515fef3a253afa2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_330ba3abc31013002841b63b12d3aee8</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>requested_item</field>
+        <id>06eb814a979721105515fef3a253afa1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>02eb814a979721105515fef3a253afa3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_330ba3abc31013002841b63b12d3aee8</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>template_catalog_item</field>
+        <id>06eb814a979721105515fef3a253afa1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>4eeb814a979721105515fef3a253afa2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_330ba3abc31013002841b63b12d3aee8</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=06eb814a979721105515fef3a253afa1"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=06eb814a979721105515fef3a253afa1"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <order>4</order>
+        <parent_ui_id>4538bbd1-3dad-4cdc-9e9b-64a08b3a5f12</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>0aeb814a979721105515fef3a253afb5</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin.system</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:15:25</sys_updated_on>
+        <ui_id>73dcc223-d2f3-4d9d-942a-fb9ed903366d</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=0aeb814a979721105515fef3a253afb5"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>0aeb814a979721105515fef3a253afb5</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>06eb814a979721105515fef3a253afb7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>0aeb814a979721105515fef3a253afb5</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>42eb814a979721105515fef3a253afb7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <value>stage=rejected^state=completed</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=0aeb814a979721105515fef3a253afb5"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>0aeb814a979721105515fef3a253afb5</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>ceeb814a979721105515fef3a253afb6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>0aeb814a979721105515fef3a253afb5</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>4aeb814a979721105515fef3a253afb6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>0aeb814a979721105515fef3a253afb5</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>0eeb814a979721105515fef3a253afb6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=0aeb814a979721105515fef3a253afb5"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=0aeb814a979721105515fef3a253afb5"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Email">c1806bf4a70323008299b39f087901cb</action_type>
+        <action_type_parent/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <order>8</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>1aeb814a979721105515fef3a253afd8</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin.system</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:15:25</sys_updated_on>
+        <ui_id>702f7997-6313-4cf3-8fad-5159704207f4</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=1aeb814a979721105515fef3a253afd8"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>1aeb814a979721105515fef3a253afd8</document_key>
+        <order>6</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>5aeb814a979721105515fef3a253afdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <value>Car Reservation Approved</value>
+        <variable display_value="Subject">5d806bf4a70323008299b39f087901ec</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>1aeb814a979721105515fef3a253afd8</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>96eb814a979721105515fef3a253afdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">19806bf4a70323008299b39f087901d4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>1aeb814a979721105515fef3a253afd8</document_key>
+        <order>7</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>d2eb814a979721105515fef3a253afdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <value>&lt;p&gt;&lt;span style="white-space: pre;"&gt;Car Reservation Approved&lt;/span&gt;&lt;/p&gt;</value>
+        <variable display_value="Body">ad806bf4a70323008299b39f087901f2</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=1aeb814a979721105515fef3a253afd8"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_body</field>
+        <id>1aeb814a979721105515fef3a253afd8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>1aeb814a979721105515fef3a253afda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_subject</field>
+        <id>1aeb814a979721105515fef3a253afd8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>52eb814a979721105515fef3a253afdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_to</field>
+        <id>1aeb814a979721105515fef3a253afd8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>56eb814a979721105515fef3a253afda</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:22:29</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{Created_1.current.email}} </value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>1aeb814a979721105515fef3a253afd8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>daeb814a979721105515fef3a253afda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>1aeb814a979721105515fef3a253afd8</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>9eeb814a979721105515fef3a253afda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=1aeb814a979721105515fef3a253afd8^sys_idNOT IN23bc518e97d721105515fef3a253afa1,2bbc518e97d721105515fef3a253afa1"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <input_name>watermark_email</input_name>
+        <instance>1aeb814a979721105515fef3a253afd8</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"watermark_email":{"scriptActive":false}}</script>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 13:22:29</sys_created_on>
+        <sys_id>23bc518e97d721105515fef3a253afa1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:22:29</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <input_name>ah_to</input_name>
+        <instance>1aeb814a979721105515fef3a253afd8</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"ah_to":{"scriptActive":false}}</script>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 13:22:29</sys_created_on>
+        <sys_id>2bbc518e97d721105515fef3a253afa1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:22:29</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=1aeb814a979721105515fef3a253afd8"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Ask For Approval">f8f2e9920b10030085c083eb37673abd</action_type>
+        <action_type_parent/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>46eb814a979721105515fef3a253afaa</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin.system</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:15:25</sys_updated_on>
+        <ui_id>32263cf7-d59a-4f78-b371-309cb2193d2b</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=46eb814a979721105515fef3a253afaa"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>46eb814a979721105515fef3a253afaa</document_key>
+        <order>5</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>0eeb814a979721105515fef3a253afac</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <value/>
+        <variable display_value="Due Date">c5f2e9920b10030085c083eb37673af9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>46eb814a979721105515fef3a253afaa</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>ceeb814a979721105515fef3a253afac</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:20:41</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">bcf2e9920b10030085c083eb37673acc</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=46eb814a979721105515fef3a253afaa"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>approval_conditions</field>
+        <id>46eb814a979721105515fef3a253afaa</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>c6eb814a979721105515fef3a253afac</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:03:18</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f8f2e9920b10030085c083eb37673abd</table>
+        <value>ApprovesRejectsAnyU[{{static.6816f79cc0a8016401c5a33be04be441}},{{static.193577bd971321105515fef3a253af00}}]</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>due_date</field>
+        <id>46eb814a979721105515fef3a253afaa</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>06eb814a979721105515fef3a253afac</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:06</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f8f2e9920b10030085c083eb37673abd</table>
+        <value>{"action":"reject","date_type":"relative","date":"{{Created_1.current.sys_created_on}}","duration":"3","duration_type":"hours","schedule":"38f8b6d2c0a801640075da0e39d47696","schedule_label":"Workday 8:00 - 5:00"}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>46eb814a979721105515fef3a253afaa</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>42eb814a979721105515fef3a253afac</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:20:41</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f8f2e9920b10030085c083eb37673abd</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>46eb814a979721105515fef3a253afaa</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>8aeb814a979721105515fef3a253afac</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f8f2e9920b10030085c083eb37673abd</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=46eb814a979721105515fef3a253afaa^sys_idNOT IN129e090e979721105515fef3a253afe2"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <input_name>record</input_name>
+        <instance>46eb814a979721105515fef3a253afaa</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"record":{"scriptActive":false}}</script>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:20:41</sys_created_on>
+        <sys_id>129e090e979721105515fef3a253afe2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:20:41</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=46eb814a979721105515fef3a253afaa"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Email">c1806bf4a70323008299b39f087901cb</action_type>
+        <action_type_parent/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <order>5</order>
+        <parent_ui_id>4538bbd1-3dad-4cdc-9e9b-64a08b3a5f12</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>82eb814a979721105515fef3a253afbd</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin.system</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:15:25</sys_updated_on>
+        <ui_id>0b2e1c8d-b534-4462-a204-edaa009672c9</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=82eb814a979721105515fef3a253afbd"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>82eb814a979721105515fef3a253afbd</document_key>
+        <order>6</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>4aeb814a979721105515fef3a253afc0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <value>Car Reservation Rejected,</value>
+        <variable display_value="Subject">5d806bf4a70323008299b39f087901ec</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>82eb814a979721105515fef3a253afbd</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>86eb814a979721105515fef3a253afc0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">19806bf4a70323008299b39f087901d4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>82eb814a979721105515fef3a253afbd</document_key>
+        <order>7</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>c2eb814a979721105515fef3a253afc0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <value>&lt;p&gt;&lt;span style="white-space: pre;"&gt;Car Reservation Rejected, Please re-reserve again.&lt;/span&gt;&lt;/p&gt;</value>
+        <variable display_value="Body">ad806bf4a70323008299b39f087901f2</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=82eb814a979721105515fef3a253afbd"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_body</field>
+        <id>82eb814a979721105515fef3a253afbd</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>0aeb814a979721105515fef3a253afbf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_subject</field>
+        <id>82eb814a979721105515fef3a253afbd</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>42eb814a979721105515fef3a253afc0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_to</field>
+        <id>82eb814a979721105515fef3a253afbd</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>46eb814a979721105515fef3a253afbf</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:22:29</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{Created_1.current.email}} </value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>82eb814a979721105515fef3a253afbd</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>caeb814a979721105515fef3a253afbf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>82eb814a979721105515fef3a253afbd</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>8eeb814a979721105515fef3a253afbf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=82eb814a979721105515fef3a253afbd"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=82eb814a979721105515fef3a253afbd"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <order>7</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>8eeb814a979721105515fef3a253afd0</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin.system</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:15:25</sys_updated_on>
+        <ui_id>ac4f72e7-eba9-46e3-b670-84d41b1f198f</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=8eeb814a979721105515fef3a253afd0"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>8eeb814a979721105515fef3a253afd0</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>8aeb814a979721105515fef3a253afd2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>8eeb814a979721105515fef3a253afd0</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>c6eb814a979721105515fef3a253afd2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <value>state=completed^stage=approved</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=8eeb814a979721105515fef3a253afd0"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>8eeb814a979721105515fef3a253afd0</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>46eb814a979721105515fef3a253afd2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>8eeb814a979721105515fef3a253afd0</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>ceeb814a979721105515fef3a253afd1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>8eeb814a979721105515fef3a253afd0</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:56</sys_created_on>
+        <sys_id>82eb814a979721105515fef3a253afd2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:56</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=8eeb814a979721105515fef3a253afd0"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=8eeb814a979721105515fef3a253afd0"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=a0ccfc46975721105515fef3a253af48"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=a0ccfc46975721105515fef3a253af48^sys_idNOT IN02eb814a979721105515fef3a253afae,efbc518e97d721105515fef3a253af9b"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">46eb814a979721105515fef3a253afad</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>3</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>02eb814a979721105515fef3a253afae</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:20</sys_updated_on>
+        <ui_id>4538bbd1-3dad-4cdc-9e9b-64a08b3a5f12</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=02eb814a979721105515fef3a253afae"/>
+    <sys_element_mapping action="delete_multiple" query="id=02eb814a979721105515fef3a253afae"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>02eb814a979721105515fef3a253afae</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:08:55</sys_created_on>
+        <sys_id>4aeb814a979721105515fef3a253afb1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:08:55</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{32263cf7-d59a-4f78-b371-309cb2193d2b.approval_state}}=rejected</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=02eb814a979721105515fef3a253afae"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=02eb814a979721105515fef3a253afae"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">27bc518e97d721105515fef3a253af9b</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="End">d176605ea76103004f27b0d2187901c7</logic_definition>
+        <order>6</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>4538bbd1-3dad-4cdc-9e9b-64a08b3a5f12</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 13:22:29</sys_created_on>
+        <sys_id>efbc518e97d721105515fef3a253af9b</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:20</sys_updated_on>
+        <ui_id>b508a7cb-19c5-492f-9898-6766289daff5</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=efbc518e97d721105515fef3a253af9b"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=efbc518e97d721105515fef3a253af9b"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=efbc518e97d721105515fef3a253af9b"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=a0ccfc46975721105515fef3a253af48"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=a0ccfc46975721105515fef3a253af48"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_a0ccfc46975721105515fef3a253af48^sys_idNOT IN156a49c6979721105515fef3a253afa3,916a49c6979721105515fef3a253afa6"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_a0ccfc46975721105515fef3a253af48</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:02:18</sys_created_on>
+        <sys_id>156a49c6979721105515fef3a253afa3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:02:18</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_a0ccfc46975721105515fef3a253af48</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:02:19</sys_created_on>
+        <sys_id>916a49c6979721105515fef3a253afa6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:02:19</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_a0ccfc46975721105515fef3a253af48"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_a0ccfc46975721105515fef3a253af48"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_a0ccfc46975721105515fef3a253af48"/>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=a0ccfc46975721105515fef3a253af48^sys_idNOT IN5bbe8d0e979721105515fef3a253af53"/>
+    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
+        <binding_strategy>com.snc.process_flow.engine.binding.OncePerRecord</binding_strategy>
+        <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"5bbe8d0e979721105515fef3a253af53","name":"plan","plan_signature":null}}</plan>
+        <plan_id>a0ccfc46975721105515fef3a253af48</plan_id>
+        <snapshot>b996718a975b21105515fef3a253af69</snapshot>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:17</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5bbe8d0e979721105515fef3a253af53</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:20</sys_updated_on>
+        <trigger display_value="">4a56f94a975b21105515fef3a253af71</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=a0ccfc46975721105515fef3a253af48"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <internal_name>car_reservation_approve_flow</internal_name>
+        <label_cache>[{"name":"Created_1.current.email","label":"Trigger - Record Created➛car_reserve Record➛Email","reference":"","reference_display":"Email","type":"string","base_type":"string","parent_table_name":"x_1067756_carparki_car_reserve","column_name":"email"},{"name":"94ae8633-feda-49d3-b552-3d9952894a47.__dont_treat_as_error__","label":"2 - Submit Catalog Item Request➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"boolean","visible_in_ui":"false","action_error_output":"true"}},{"name":"94ae8633-feda-49d3-b552-3d9952894a47.__action_status__","label":"2 - Submit Catalog Item Request➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"co_type_name":"FDACTIONSTATUS","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"object","action_error_output":"true"}},{"name":"94ae8633-feda-49d3-b552-3d9952894a47.error_message","label":"2 - Submit Catalog Item Request➛Error Message","reference_display":"Error Message","type":"string","base_type":"string","attributes":{"uiTypeLabel":"String","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","pwd2droppable":"true","uiType":"string","uiUniqueId":"7cf3e70c-55c1-42c4-811a-c6b7ec1692b9"}},{"name":"94ae8633-feda-49d3-b552-3d9952894a47.requested_item","label":"2 - Submit Catalog Item Request➛Requested Item","reference":"sc_req_item","reference_display":"Requested Item","type":"document_id","base_type":"document_id","attributes":{"uiTypeLabel":"Document ID","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"document_id","uiUniqueId":"aad3452b-309c-469c-9797-4df9ef6f86be"}},{"name":"94ae8633-feda-49d3-b552-3d9952894a47.status","label":"2 - Submit Catalog Item Request➛Status","reference_display":"Status","type":"choice","base_type":"choice","choices":[{"label":"Success","value":"0","order":0.0},{"label":"Error","value":"1","order":1.0},{"label":"Timeout","value":"2","order":2.0}],"attributes":{"uiTypeLabel":"Choice","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"choice","uiUniqueId":"eacb2914-9214-441b-ac02-5703c4d8b6ee"}},{"name":"{{static.6816f79cc0a8016401c5a33be04be441}}","label":"System Administrator","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference"},{"name":"702f7997-6313-4cf3-8fad-5159704207f4.__dont_treat_as_error__","label":"8 - Send Email➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"702f7997-6313-4cf3-8fad-5159704207f4.__action_status__","label":"8 - Send Email➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"702f7997-6313-4cf3-8fad-5159704207f4.email","label":"8 - Send Email➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.cost","label":"1 - Get Catalog Variables➛cost","reference":"","reference_display":"cost","type":"string","base_type":"string","attributes":{"catalogType":"6","catalogTypeLabel":"Single Line Text"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.duration","label":"1 - Get Catalog Variables➛duration","reference":"","reference_display":"duration","type":"string","base_type":"string","attributes":{"catalogType":"6","catalogTypeLabel":"Single Line Text"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.location","label":"1 - Get Catalog Variables➛location","reference":"","reference_display":"location","type":"choice","base_type":"choice","choices":[{"label":"-- None --","value":"","order":100.0},{"label":"West1","value":"west_1","order":100.0},{"label":"East1","value":"east_1","order":100.0},{"label":"Central1","value":"central_1","order":100.0}],"attributes":{"catalogType":"5","catalogTypeLabel":"Select Box"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.end_date","label":"1 - Get Catalog Variables➛end_date","reference":"","reference_display":"end_date","type":"glide_date_time","base_type":"glide_date_time","attributes":{"catalogType":"10","catalogTypeLabel":"Date/Time"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.start_date","label":"1 - Get Catalog Variables➛start_date","reference":"","reference_display":"start_date","type":"glide_date_time","base_type":"glide_date_time","attributes":{"catalogType":"10","catalogTypeLabel":"Date/Time"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.car_type","label":"1 - Get Catalog Variables➛car_type","reference":"","reference_display":"car_type","type":"choice","base_type":"choice","choices":[{"label":"City Car","value":"car","order":100.0},{"label":"ETC","value":"etc","order":100.0},{"label":"EV Car","value":"ev_car","order":100.0},{"label":"SUV Car","value":"suv","order":100.0},{"label":"Van","value":"van","order":100.0}],"attributes":{"catalogType":"5","catalogTypeLabel":"Select Box"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.vehicle_number","label":"1 - Get Catalog Variables➛vehicle_number","reference":"","reference_display":"vehicle_number","type":"string","base_type":"string","attributes":{"catalogType":"6","catalogTypeLabel":"Single Line Text"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.phone","label":"1 - Get Catalog Variables➛phone","reference":"","reference_display":"phone","type":"string","base_type":"string","attributes":{"catalogType":"6","catalogTypeLabel":"Single Line Text"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.email","label":"1 - Get Catalog Variables➛email","reference":"","reference_display":"email","type":"string","base_type":"string","attributes":{"catalogType":"6","catalogTypeLabel":"Single Line Text"}},{"name":"7ad07668-4dba-485c-8800-b884999f2c72.username","label":"1 - Get Catalog Variables➛username","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","attributes":{"catalogType":"8","catalogTypeLabel":"Reference"}},{"name":"0b2e1c8d-b534-4462-a204-edaa009672c9.__dont_treat_as_error__","label":"5 - Send Email➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"0b2e1c8d-b534-4462-a204-edaa009672c9.__action_status__","label":"5 - Send Email➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"0b2e1c8d-b534-4462-a204-edaa009672c9.email","label":"5 - Send Email➛email","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ac4f72e7-eba9-46e3-b670-84d41b1f198f.__dont_treat_as_error__","label":"7 - Update Record➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ac4f72e7-eba9-46e3-b670-84d41b1f198f.__action_status__","label":"7 - Update Record➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ac4f72e7-eba9-46e3-b670-84d41b1f198f.table_name","label":"7 - Update Record➛car_reserve Table","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"ac4f72e7-eba9-46e3-b670-84d41b1f198f.record","label":"7 - Update Record➛car_reserve Record","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"73dcc223-d2f3-4d9d-942a-fb9ed903366d.__dont_treat_as_error__","label":"4 - Update Record➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"73dcc223-d2f3-4d9d-942a-fb9ed903366d.__action_status__","label":"4 - Update Record➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"73dcc223-d2f3-4d9d-942a-fb9ed903366d.table_name","label":"4 - Update Record➛car_reserve Table","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"73dcc223-d2f3-4d9d-942a-fb9ed903366d.record","label":"4 - Update Record➛car_reserve Record","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created_1.run_start_date_time","label":"Trigger - Record Created➛Run Start Date/Time","type":"glide_date_time","base_type":"glide_date_time","attributes":{"test_input_hidden":"true"}},{"name":"{{static.1d014dca975721105515fef3a253af51}}","label":"Car Reservation Admin","reference":"sys_user_group","reference_display":"Group","type":"reference","base_type":"reference"},{"name":"32263cf7-d59a-4f78-b371-309cb2193d2b.__dont_treat_as_error__","label":"2 - Ask For Approval➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"32263cf7-d59a-4f78-b371-309cb2193d2b.__action_status__","label":"2 - Ask For Approval➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"32263cf7-d59a-4f78-b371-309cb2193d2b.approval_state","label":"2 - Ask For Approval➛Approval State","reference_display":"Approval State","type":"choice","base_type":"choice","choices":[{"label":"-- None --","value":"","order":0.0},{"label":"Not Yet Requested","value":"not requested","order":1.0},{"label":"Requested","value":"requested","order":2.0},{"label":"Approved","value":"approved","order":3.0},{"label":"Rejected","value":"rejected","order":4.0},{"label":"Cancelled","value":"cancelled","order":5.0},{"label":"No Longer Required","value":"not_required","order":6.0},{"label":"Skipped","value":"skipped","order":7.0}],"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"2216aa09-2e8f-425c-8631-3dba66523bd7.record","label":"2 - Update Record➛car_reserve Record","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"reference","base_type":"reference","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"2216aa09-2e8f-425c-8631-3dba66523bd7.table_name","label":"2 - Update Record➛car_reserve Table","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"2216aa09-2e8f-425c-8631-3dba66523bd7.__action_status__","label":"2 - Update Record➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"uiType":"object","co_type_name":"FDACTIONSTATUS","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"2216aa09-2e8f-425c-8631-3dba66523bd7.__dont_treat_as_error__","label":"2 - Update Record➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"uiType":"boolean","visible_in_ui":"false","action_error_output":"true","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"Created_1.current","label":"Trigger - Record Created➛car_reserve Record","reference":"x_1067756_carparki_car_reserve","reference_display":"car_reserve","type":"reference","base_type":"reference","attributes":{}},{"name":"Created_1.current.sys_created_on","label":"Trigger - Record Created➛car_reserve Record➛Created","reference":"","reference_display":"Created","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"x_1067756_carparki_car_reserve","column_name":"sys_created_on"},{"name":"Created_1.run_start_time","label":"Trigger - Record Created➛Run Start Time UTC","type":"glide_date_time","base_type":"glide_date_time","attributes":{"test_input_hidden":"true"}},{"name":"{{static.193577bd971321105515fef3a253af00}}","label":"Cat Satan","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference"},{"name":"207a5836-fba5-421d-af43-d931f60af539.record","label":"2 - Update Record➛Record","reference_display":"Record","type":"document_id","base_type":"document_id","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"207a5836-fba5-421d-af43-d931f60af539.table_name","label":"2 - Update Record➛Table","reference_display":"Table","type":"table_name","base_type":"table_name","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"207a5836-fba5-421d-af43-d931f60af539.__action_status__","label":"2 - Update Record➛Action Status","reference_display":"Action Status","type":"object","base_type":"object","attributes":{"co_type_name":"FDACTIONSTATUS","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"object","action_error_output":"true"}},{"name":"207a5836-fba5-421d-af43-d931f60af539.__dont_treat_as_error__","label":"2 - Update Record➛Don\u0027t Treat as Error","reference_display":"Don\u0027t Treat as Error","type":"boolean","base_type":"boolean","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiType":"boolean","visible_in_ui":"false","action_error_output":"true"}}]</label_cache>
+        <master>true</master>
+        <name>Car Reservation Approve Flow</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Car Reservation Approve Flow">a0ccfc46975721105515fef3a253af48</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:15</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7ebe4d0e979721105515fef3a253af9d</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:19</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=7ebe4d0e979721105515fef3a253af9d"/>
+    <sys_variable_value action="delete_multiple" query="document_key=7ebe4d0e979721105515fef3a253af9d"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=7ebe4d0e979721105515fef3a253af9d^sys_idNOT INc7be8d0e979721105515fef3a253af02"/>
+    <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <name>Created</name>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>c7be8d0e979721105515fef3a253af02</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:20</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=c7be8d0e979721105515fef3a253af02"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>c7be8d0e979721105515fef3a253af02</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>03be8d0e979721105515fef3a253af04</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>^EQ</value>
+        <variable display_value="Condition">66aadea0c31322002841b63b12d3aebf</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>c7be8d0e979721105515fef3a253af02</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>c3be8d0e979721105515fef3a253af04</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">cfca92e0c31322002841b63b12d3ae00</variable>
+    </sys_variable_value>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=7ebe4d0e979721105515fef3a253af9d^sys_idNOT IN03be8d0e979721105515fef3a253af05,0bbe8d0e979721105515fef3a253af04,8fbe8d0e979721105515fef3a253af04"/>
+    <sys_hub_flow_stage action="INSERT_OR_UPDATE">
+        <always_show>true</always_show>
+        <ancestor_array_position>0</ancestor_array_position>
+        <ancestor_component_id/>
+        <ancestor_stage_id/>
+        <ancestral_if_else_logic/>
+        <component_indexes>3</component_indexes>
+        <duration/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <label>Request Cancelled</label>
+        <order>1</order>
+        <stage_id>b6d91bbf-0b77-49db-b13a-6d0006c18eaf</stage_id>
+        <states>{"pending":"Pending - has not started","in_progress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>03be8d0e979721105515fef3a253af05</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:27:52</sys_updated_on>
+        <type>standard</type>
+        <value>rejected</value>
+    </sys_hub_flow_stage>
+    <sys_hub_flow_stage action="INSERT_OR_UPDATE">
+        <always_show>true</always_show>
+        <ancestor_array_position>0</ancestor_array_position>
+        <ancestor_component_id/>
+        <ancestor_stage_id/>
+        <ancestral_if_else_logic/>
+        <component_indexes>1</component_indexes>
+        <duration/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <label>Waiting for Approval</label>
+        <order>0</order>
+        <stage_id>3c403338-e17e-41a1-89de-fe1836353115</stage_id>
+        <states>{"pending":"Pending - has not started","in_progress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>0bbe8d0e979721105515fef3a253af04</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:27:52</sys_updated_on>
+        <type>standard</type>
+        <value>requested</value>
+    </sys_hub_flow_stage>
+    <sys_hub_flow_stage action="INSERT_OR_UPDATE">
+        <always_show>true</always_show>
+        <ancestor_array_position>0</ancestor_array_position>
+        <ancestor_component_id/>
+        <ancestor_stage_id/>
+        <ancestral_if_else_logic/>
+        <component_indexes>6</component_indexes>
+        <duration/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <label>Request Approved</label>
+        <order>2</order>
+        <stage_id>d9636049-6ce9-41c4-b206-2b6230eaf9b8</stage_id>
+        <states>{"pending":"Pending - has not started","in_progress":"In progress","skipped":"Skipped","complete":"Completed","error":"Error"}</states>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>8fbe8d0e979721105515fef3a253af04</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:27:52</sys_updated_on>
+        <type>standard</type>
+        <value>approved</value>
+    </sys_hub_flow_stage>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=7ebe4d0e979721105515fef3a253af9d^sys_idNOT IN3ebe4d0e979721105515fef3a253af9e"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>7ebe4d0e979721105515fef3a253af9d</id>
+        <name>Car Reservation Approve Flow</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>3ebe4d0e979721105515fef3a253af9e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=3ebe4d0e979721105515fef3a253af9e"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=7ebe4d0e979721105515fef3a253af9d^sys_idNOT IN72be4d0e979721105515fef3a253afa0,f6be4d0e979721105515fef3a253afb3"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</model>
+        <model_id>7ebe4d0e979721105515fef3a253af9d</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_7ebe4d0e979721105515fef3a253af9d</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>72be4d0e979721105515fef3a253afa0</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:18</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</model>
+        <model_id>7ebe4d0e979721105515fef3a253af9d</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_7ebe4d0e979721105515fef3a253af9d</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>f6be4d0e979721105515fef3a253afb3</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:18</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_flow_output action="delete_multiple" query="model=7ebe4d0e979721105515fef3a253af9d"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=7ebe4d0e979721105515fef3a253af9d"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=7ebe4d0e979721105515fef3a253af9d^sys_idNOT IN07be4d0e979721105515fef3a253afff,43be4d0e979721105515fef3a253afeb,87be4d0e979721105515fef3a253afd9,8fbe4d0e979721105515fef3a253afe3,b6be4d0e979721105515fef3a253afc7,c3be4d0e979721105515fef3a253afd1"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Email">c1806bf4a70323008299b39f087901cb</action_type>
+        <action_type_parent display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type_parent>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <order>8</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>07be4d0e979721105515fef3a253afff</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:19</sys_updated_on>
+        <ui_id>702f7997-6313-4cf3-8fad-5159704207f4</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=07be4d0e979721105515fef3a253afff"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>07be4d0e979721105515fef3a253afff</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>03be8d0e979721105515fef3a253af02</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">19806bf4a70323008299b39f087901d4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>07be4d0e979721105515fef3a253afff</document_key>
+        <order>7</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>4fbe8d0e979721105515fef3a253af01</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>&lt;p&gt;&lt;span style="white-space: pre;"&gt;Car Reservation Approved&lt;/span&gt;&lt;/p&gt;</value>
+        <variable display_value="Body">ad806bf4a70323008299b39f087901f2</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>07be4d0e979721105515fef3a253afff</document_key>
+        <order>6</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>c3be8d0e979721105515fef3a253af02</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>Car Reservation Approved</value>
+        <variable display_value="Subject">5d806bf4a70323008299b39f087901ec</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=07be4d0e979721105515fef3a253afff"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_body</field>
+        <id>07be4d0e979721105515fef3a253afff</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>83be8d0e979721105515fef3a253af01</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_subject</field>
+        <id>07be4d0e979721105515fef3a253afff</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>cbbe8d0e979721105515fef3a253af01</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_to</field>
+        <id>07be4d0e979721105515fef3a253afff</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>cfbe8d0e979721105515fef3a253af00</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:27:52</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{Created_1.current.email}} </value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>07be4d0e979721105515fef3a253afff</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>47be8d0e979721105515fef3a253af01</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>07be4d0e979721105515fef3a253afff</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>0bbe8d0e979721105515fef3a253af01</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=07be4d0e979721105515fef3a253afff^sys_idNOT IN66fdddce97d721105515fef3a253af85,6efdddce97d721105515fef3a253af85"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <input_name>watermark_email</input_name>
+        <instance>07be4d0e979721105515fef3a253afff</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"watermark_email":{"scriptActive":false}}</script>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 13:27:52</sys_created_on>
+        <sys_id>66fdddce97d721105515fef3a253af85</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:27:52</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <input_name>ah_to</input_name>
+        <instance>07be4d0e979721105515fef3a253afff</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"ah_to":{"scriptActive":false}}</script>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 13:27:52</sys_created_on>
+        <sys_id>6efdddce97d721105515fef3a253af85</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:27:52</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=07be4d0e979721105515fef3a253afff"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <order>7</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>43be4d0e979721105515fef3a253afeb</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:19</sys_updated_on>
+        <ui_id>ac4f72e7-eba9-46e3-b670-84d41b1f198f</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=43be4d0e979721105515fef3a253afeb"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>43be4d0e979721105515fef3a253afeb</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>4fbe4d0e979721105515fef3a253afec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>43be4d0e979721105515fef3a253afeb</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>8bbe4d0e979721105515fef3a253afec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>state=completed^stage=approved</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=43be4d0e979721105515fef3a253afeb"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>43be4d0e979721105515fef3a253afeb</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>0bbe4d0e979721105515fef3a253afec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>43be4d0e979721105515fef3a253afeb</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>83be4d0e979721105515fef3a253afec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>43be4d0e979721105515fef3a253afeb</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>47be4d0e979721105515fef3a253afec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=43be4d0e979721105515fef3a253afeb"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=43be4d0e979721105515fef3a253afeb"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <order>4</order>
+        <parent_ui_id>4538bbd1-3dad-4cdc-9e9b-64a08b3a5f12</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>87be4d0e979721105515fef3a253afd9</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:19</sys_updated_on>
+        <ui_id>73dcc223-d2f3-4d9d-942a-fb9ed903366d</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=87be4d0e979721105515fef3a253afd9"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>87be4d0e979721105515fef3a253afd9</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>87be4d0e979721105515fef3a253afdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">b5d01916c31332002841b63b12d3aec9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>87be4d0e979721105515fef3a253afd9</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>c3be4d0e979721105515fef3a253afdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>stage=rejected^state=completed</value>
+        <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=87be4d0e979721105515fef3a253afd9"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>87be4d0e979721105515fef3a253afd9</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>43be4d0e979721105515fef3a253afdb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>87be4d0e979721105515fef3a253afd9</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>cbbe4d0e979721105515fef3a253afda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>values</field>
+        <id>87be4d0e979721105515fef3a253afd9</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>8fbe4d0e979721105515fef3a253afda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f9d01dd2c31332002841b63b12d3aea1</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=87be4d0e979721105515fef3a253afd9"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=87be4d0e979721105515fef3a253afd9"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Email">c1806bf4a70323008299b39f087901cb</action_type>
+        <action_type_parent display_value="Send Email">98c181d20b100300d97d8bf637673ab5</action_type_parent>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <order>5</order>
+        <parent_ui_id>4538bbd1-3dad-4cdc-9e9b-64a08b3a5f12</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>8fbe4d0e979721105515fef3a253afe3</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:19</sys_updated_on>
+        <ui_id>0b2e1c8d-b534-4462-a204-edaa009672c9</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=8fbe4d0e979721105515fef3a253afe3"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>8fbe4d0e979721105515fef3a253afe3</document_key>
+        <order>6</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>43be4d0e979721105515fef3a253afe7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>Car Reservation Rejected,</value>
+        <variable display_value="Subject">5d806bf4a70323008299b39f087901ec</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>8fbe4d0e979721105515fef3a253afe3</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>8fbe4d0e979721105515fef3a253afe6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">19806bf4a70323008299b39f087901d4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>8fbe4d0e979721105515fef3a253afe3</document_key>
+        <order>7</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>cbbe4d0e979721105515fef3a253afe6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>&lt;p&gt;&lt;span style="white-space: pre;"&gt;Car Reservation Rejected, Please re-reserve again.&lt;/span&gt;&lt;/p&gt;</value>
+        <variable display_value="Body">ad806bf4a70323008299b39f087901f2</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=8fbe4d0e979721105515fef3a253afe3"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_body</field>
+        <id>8fbe4d0e979721105515fef3a253afe3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>03be4d0e979721105515fef3a253afe6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_subject</field>
+        <id>8fbe4d0e979721105515fef3a253afe3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>4bbe4d0e979721105515fef3a253afe6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>ah_to</field>
+        <id>8fbe4d0e979721105515fef3a253afe3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>4fbe4d0e979721105515fef3a253afe5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:27:52</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{Created_1.current.email}} </value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>8fbe4d0e979721105515fef3a253afe3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>c3be4d0e979721105515fef3a253afe6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>8fbe4d0e979721105515fef3a253afe3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>87be4d0e979721105515fef3a253afe6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_c1806bf4a70323008299b39f087901cb</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=8fbe4d0e979721105515fef3a253afe3"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=8fbe4d0e979721105515fef3a253afe3"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Get Catalog Variables">330ba3abc31013002841b63b12d3aee8</action_type>
+        <action_type_parent display_value="Get Catalog Variables">22f0b88cc3c632002841b63b12d3aeff</action_type_parent>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>b6be4d0e979721105515fef3a253afc7</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:18</sys_updated_on>
+        <ui_id>7ad07668-4dba-485c-8800-b884999f2c72</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=b6be4d0e979721105515fef3a253afc7"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>b6be4d0e979721105515fef3a253afc7</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>bebe4d0e979721105515fef3a253afc9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>e2e13f79971321105515fef3a253af04</value>
+        <variable display_value="Template Catalog Items and Variable Sets">bb0ba3abc31013002841b63b12d3aef1</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>b6be4d0e979721105515fef3a253afc7</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>f6be4d0e979721105515fef3a253afc9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>fae177b9971321105515fef3a253af07:item_option_new,fee177b9971321105515fef3a253af36:item_option_new,bae177b9971321105515fef3a253af2f:item_option_new,b6e177b9971321105515fef3a253af0e:item_option_new,eee137b9971321105515fef3a253afc7:item_option_new,b2e177b9971321105515fef3a253af15:item_option_new,72e177b9971321105515fef3a253af1c:item_option_new,ee8b7446975721105515fef3a253af54:item_option_new,975dd0c697d321105515fef3a253af52:item_option_new,c7e177b9971321105515fef3a253af3e:item_option_new</value>
+        <variable display_value="Catalog Variables">7b0ba3abc31013002841b63b12d3aef7</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=b6be4d0e979721105515fef3a253afc7"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>catalog_variables</field>
+        <id>b6be4d0e979721105515fef3a253afc7</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>febe4d0e979721105515fef3a253afc8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_330ba3abc31013002841b63b12d3aee8</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>requested_item</field>
+        <id>b6be4d0e979721105515fef3a253afc7</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>76be4d0e979721105515fef3a253afc9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_330ba3abc31013002841b63b12d3aee8</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>template_catalog_item</field>
+        <id>b6be4d0e979721105515fef3a253afc7</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>b2be4d0e979721105515fef3a253afc9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_330ba3abc31013002841b63b12d3aee8</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=b6be4d0e979721105515fef3a253afc7"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=b6be4d0e979721105515fef3a253afc7"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Ask For Approval">f8f2e9920b10030085c083eb37673abd</action_type>
+        <action_type_parent display_value="Ask For Approval">bae0a1120b10030085c083eb37673a92</action_type_parent>
+        <comment/>
+        <display_text/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>c3be4d0e979721105515fef3a253afd1</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:18</sys_updated_on>
+        <ui_id>32263cf7-d59a-4f78-b371-309cb2193d2b</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=c3be4d0e979721105515fef3a253afd1"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>c3be4d0e979721105515fef3a253afd1</document_key>
+        <order>5</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>0bbe4d0e979721105515fef3a253afd3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value/>
+        <variable display_value="Due Date">c5f2e9920b10030085c083eb37673af9</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>c3be4d0e979721105515fef3a253afd1</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>cbbe4d0e979721105515fef3a253afd3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <value>x_1067756_carparki_car_reserve</value>
+        <variable display_value="Table">bcf2e9920b10030085c083eb37673acc</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=c3be4d0e979721105515fef3a253afd1"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>approval_conditions</field>
+        <id>c3be4d0e979721105515fef3a253afd1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>c3be4d0e979721105515fef3a253afd3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 13:27:52</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f8f2e9920b10030085c083eb37673abd</table>
+        <value>ApprovesRejectsAnyU[{{static.6816f79cc0a8016401c5a33be04be441}},{{static.193577bd971321105515fef3a253af00}}]</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>due_date</field>
+        <id>c3be4d0e979721105515fef3a253afd1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>03be4d0e979721105515fef3a253afd3</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:18</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f8f2e9920b10030085c083eb37673abd</table>
+        <value>{"action":"reject","date_type":"relative","date":"{{Created_1.current.sys_created_on}}","duration":"3","duration_type":"hours","schedule":"38f8b6d2c0a801640075da0e39d47696","schedule_label":"Workday 8:00 - 5:00"}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>c3be4d0e979721105515fef3a253afd1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>4fbe4d0e979721105515fef3a253afd2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f8f2e9920b10030085c083eb37673abd</table>
+        <value>{{Created_1.current}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table</field>
+        <id>c3be4d0e979721105515fef3a253afd1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>87be4d0e979721105515fef3a253afd3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_action_input_f8f2e9920b10030085c083eb37673abd</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=c3be4d0e979721105515fef3a253afd1^sys_idNOT IN07be4d0e979721105515fef3a253afd2"/>
+    <sys_hub_input_scripts action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <input_name>record</input_name>
+        <instance>c3be4d0e979721105515fef3a253afd1</instance>
+        <referenced_table>sys_hub_action_instance</referenced_table>
+        <script>{"record":{"scriptActive":false}}</script>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>07be4d0e979721105515fef3a253afd2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+    </sys_hub_input_scripts>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=c3be4d0e979721105515fef3a253afd1"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=7ebe4d0e979721105515fef3a253af9d"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=7ebe4d0e979721105515fef3a253af9d^sys_idNOT IN32be4d0e979721105515fef3a253afbe,66fdddce97d721105515fef3a253af8d"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">46eb814a979721105515fef3a253afad</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="If">af4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>3</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>32be4d0e979721105515fef3a253afbe</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:19</sys_updated_on>
+        <ui_id>4538bbd1-3dad-4cdc-9e9b-64a08b3a5f12</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=32be4d0e979721105515fef3a253afbe"/>
+    <sys_element_mapping action="delete_multiple" query="id=32be4d0e979721105515fef3a253afbe"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>condition</field>
+        <id>32be4d0e979721105515fef3a253afbe</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>7abe4d0e979721105515fef3a253afc1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_af4e1945c3e232002841b63b12d3ae3e</table>
+        <value>{{32263cf7-d59a-4f78-b371-309cb2193d2b.approval_state}}=rejected</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=32be4d0e979721105515fef3a253afbe"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=32be4d0e979721105515fef3a253afbe"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <block display_value="">27bc518e97d721105515fef3a253af9b</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="Car Reservation Approve Flow">7ebe4d0e979721105515fef3a253af9d</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <inputs/>
+        <logic_definition display_value="End">d176605ea76103004f27b0d2187901c7</logic_definition>
+        <order>6</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id>4538bbd1-3dad-4cdc-9e9b-64a08b3a5f12</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 13:27:52</sys_created_on>
+        <sys_id>66fdddce97d721105515fef3a253af8d</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 15:14:19</sys_updated_on>
+        <ui_id>b508a7cb-19c5-492f-9898-6766289daff5</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=66fdddce97d721105515fef3a253af8d"/>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=66fdddce97d721105515fef3a253af8d"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=66fdddce97d721105515fef3a253af8d"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=7ebe4d0e979721105515fef3a253af9d"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=7ebe4d0e979721105515fef3a253af9d"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_7ebe4d0e979721105515fef3a253af9d^sys_idNOT INbebe4d0e979721105515fef3a253afaf,f2be4d0e979721105515fef3a253afb7"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_7ebe4d0e979721105515fef3a253af9d</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>bebe4d0e979721105515fef3a253afaf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_7ebe4d0e979721105515fef3a253af9d</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 12:21:16</sys_created_on>
+        <sys_id>f2be4d0e979721105515fef3a253afb7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 12:21:16</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_7ebe4d0e979721105515fef3a253af9d"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_7ebe4d0e979721105515fef3a253af9d"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_7ebe4d0e979721105515fef3a253af9d"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>a0ccfc46975721105515fef3a253af48</sys_id>
+        <latest_snapshot>7ebe4d0e979721105515fef3a253af9d</latest_snapshot>
+        <compiler_build>glide-tokyo-07-08-2022__patch4b-01-31-2023_02-07-2023_1702.zip</compiler_build>
+    </sys_hub_flow>
+</record_update>

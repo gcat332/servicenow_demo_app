@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category">
+    <sc_cat_item_category action="DELETE">
+        <sc_cat_item display_value="Car Parking Reservation">e2e13f79971321105515fef3a253af04</sc_cat_item>
+        <sc_category display_value="Parking">d39a21fc975fa1105515fef3a253afa2</sc_category>
+        <sys_class_name>sc_cat_item_category</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 06:03:39</sys_created_on>
+        <sys_id>a348ff71975321105515fef3a253afde</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Parking.Car Parking Reservation</sys_name>
+        <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name>sc_cat_item_category_a348ff71975321105515fef3a253afde</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-06-09 06:04:58</sys_updated_on>
+    </sc_cat_item_category>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</application>
+        <file_path/>
+        <instance_id>7c9e1eeddbe1bfc091232f17d4961924</instance_id>
+        <instance_name>dev85936</instance_name>
+        <name>sc_cat_item_category_a348ff71975321105515fef3a253afde</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category"><sc_cat_item_category action="DELETE"><sc_cat_item display_value="Car Parking Reservation">e2e13f79971321105515fef3a253af04</sc_cat_item><sc_category display_value="Parking">d39a21fc975fa1105515fef3a253afa2</sc_category><sys_class_name>sc_cat_item_category</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-06-09 06:03:39</sys_created_on><sys_id>a348ff71975321105515fef3a253afde</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Parking.Car Parking Reservation</sys_name><sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package><sys_policy/><sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope><sys_update_name>sc_cat_item_category_a348ff71975321105515fef3a253afde</sys_update_name><sys_updated_by>system</sys_updated_by><sys_updated_on>2023-06-09 06:04:58</sys_updated_on></sc_cat_item_category></record_update>]]></payload>
+        <payload_hash>-766484029</payload_hash>
+        <record_name>Parking.Car Parking Reservation</record_name>
+        <reverted_from/>
+        <source>177d54c697d321105515fef3a253af9e</source>
+        <source_table>sys_update_set</source_table>
+        <state>current</state>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2023-06-09 08:46:08</sys_created_on>
+        <sys_id>677d54c697d321105515fef3a253aff5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1889f559e000000001</sys_recorded_at>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-06-09 08:46:08</sys_updated_on>
+        <type>Catalog Item Category</type>
+        <update_guid>ab7d54c689d321103d0c2d6738e092f4</update_guid>
+        <update_guid_history>ab7d54c689d321103d0c2d6738e092f4:-766484029,a698b7b138532110fd2d30597a6dfc0c:1788530615</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Parking.Car Parking Reservation">ab7d54c697d321105515fef3a253aff9</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2023-06-09 08:46:08</sys_created_on>
+        <sys_db_object display_value="" name="sc_cat_item_category">sc_cat_item_category</sys_db_object>
+        <sys_id>509c7b77c5eb4e8e9cfe70ee9b1da5a1</sys_id>
+        <sys_metadata>a348ff71975321105515fef3a253afde</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Parking.Car Parking Reservation</sys_name>
+        <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_scope_delete display_value="">0d9de057df2b4a12abaadfcc407d8671</sys_scope_delete>
+        <sys_update_name>sc_cat_item_category_a348ff71975321105515fef3a253afde</sys_update_name>
+        <sys_update_version display_value="sc_cat_item_category_a348ff71975321105515fef3a253afde">677d54c697d321105515fef3a253aff5</sys_update_version>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-06-09 08:46:08</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

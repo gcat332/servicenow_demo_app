@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1067756_carparki.checkEndDate</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>checkEndDate</name>
+        <script><![CDATA[var checkEndDate = Class.create();
+checkEndDate.prototype = Object.extendsObject(global.AbstractAjaxProcessor,{
+	chkEndAfterStart: function(){
+		var start = new GlideDateTime(this.getParameter('sysparm_start_date'));
+		var end = new GlideDateTime(this.getParameter('sysparm_end_date'));
+		var answer = end.onOrAfter(start);
+		return answer.toString();
+	},
+	isPublic: true,
+    type: 'checkEndDate'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 07:41:59</sys_created_on>
+        <sys_id>098e880a979321105515fef3a253afc7</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>checkEndDate</sys_name>
+        <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name>sys_script_include_098e880a979321105515fef3a253afc7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-09 14:27:43</sys_updated_on>
+    </sys_script_include>
+</record_update>

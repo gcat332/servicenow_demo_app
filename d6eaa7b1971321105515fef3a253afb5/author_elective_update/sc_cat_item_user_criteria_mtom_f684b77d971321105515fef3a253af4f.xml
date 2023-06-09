@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_user_criteria_mtom">
+    <sc_cat_item_user_criteria_mtom action="DELETE">
+        <sc_cat_item display_value="Car Parking Reservation">e2e13f79971321105515fef3a253af04</sc_cat_item>
+        <sys_class_name>sc_cat_item_user_criteria_mtom</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-09 05:47:13</sys_created_on>
+        <sys_id>f684b77d971321105515fef3a253af4f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Car Parking Reservation.Employee</sys_name>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_update_name>sc_cat_item_user_criteria_mtom_f684b77d971321105515fef3a253af4f</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-06-09 05:47:31</sys_updated_on>
+        <user_criteria display_value="Employee">bd44737d971321105515fef3a253afb6</user_criteria>
+    </sc_cat_item_user_criteria_mtom>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</application>
+        <file_path/>
+        <instance_id>7c9e1eeddbe1bfc091232f17d4961924</instance_id>
+        <instance_name>dev85936</instance_name>
+        <name>sc_cat_item_user_criteria_mtom_f684b77d971321105515fef3a253af4f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_user_criteria_mtom"><sc_cat_item_user_criteria_mtom action="INSERT_OR_UPDATE"><sc_cat_item display_value="Car Parking Reservation">e2e13f79971321105515fef3a253af04</sc_cat_item><sys_class_name>sc_cat_item_user_criteria_mtom</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-06-09 05:47:13</sys_created_on><sys_id>f684b77d971321105515fef3a253af4f</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Car Parking Reservation.Employee</sys_name><sys_package/><sys_policy/><sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope><sys_update_name>sc_cat_item_user_criteria_mtom_f684b77d971321105515fef3a253af4f</sys_update_name><sys_updated_by>system</sys_updated_by><sys_updated_on>2023-06-09 05:47:31</sys_updated_on><user_criteria display_value="Employee">bd44737d971321105515fef3a253afb6</user_criteria></sc_cat_item_user_criteria_mtom></record_update>]]></payload>
+        <payload_hash>260211831</payload_hash>
+        <record_name>Car Parking Reservation.Employee</record_name>
+        <reverted_from/>
+        <source>4f94f77d971321105515fef3a253af4e</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2023-06-09 05:47:31</sys_created_on>
+        <sys_id>4f94f77d971321105515fef3a253aff3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1889eb215c30000001</sys_recorded_at>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-06-09 05:47:31</sys_updated_on>
+        <type>Catalog Item Available for</type>
+        <update_guid>c394f77d4e1321106f2878070b7312f3</update_guid>
+        <update_guid_history>c394f77d4e1321106f2878070b7312f3:260211831,cb94f77d8e1321109724239a86cf9ef0:1262086733</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Car Parking Reservation.Employee">ee98b7b1975321105515fef3a253af10</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2023-06-09 06:04:58</sys_created_on>
+        <sys_db_object display_value="" name="sc_cat_item_user_criteria_mtom">sc_cat_item_user_criteria_mtom</sys_db_object>
+        <sys_id>1b96ec7979a84a148ff37f4c3affa690</sys_id>
+        <sys_metadata>f684b77d971321105515fef3a253af4f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Car Parking Reservation.Employee</sys_name>
+        <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
+        <sys_scope_delete display_value="">0d9de057df2b4a12abaadfcc407d8671</sys_scope_delete>
+        <sys_update_name>sc_cat_item_user_criteria_mtom_f684b77d971321105515fef3a253af4f</sys_update_name>
+        <sys_update_version display_value="sc_cat_item_user_criteria_mtom_f684b77d971321105515fef3a253af4f">4f94f77d971321105515fef3a253aff3</sys_update_version>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2023-06-09 06:04:58</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
