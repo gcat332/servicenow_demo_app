@@ -13,13 +13,13 @@
         <delete_roles/>
         <delivery_plan/>
         <description/>
-        <display_title>false</display_title>
+        <display_title>true</display_title>
         <do_not_select_first>false</do_not_select_first>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
         <enable_also_request_for>false</enable_also_request_for>
         <example_text/>
-        <field>phone</field>
+        <field/>
         <global>false</global>
         <help_tag>More information</help_tag>
         <help_text/>
@@ -35,17 +35,17 @@
         <lookup_value/>
         <macro/>
         <macroponent/>
-        <mandatory>true</mandatory>
-        <map_to_field>true</map_to_field>
+        <mandatory>false</mandatory>
+        <map_to_field>false</map_to_field>
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
-        <name>phone</name>
-        <order>400</order>
+        <name>cost_deatil</name>
+        <order>1500</order>
         <post_insert_script/>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
         <published_ref/>
-        <question_text>Phone</question_text>
+        <question_text>Cost Deatil</question_text>
         <read_only>false</read_only>
         <read_roles/>
         <read_script/>
@@ -73,19 +73,19 @@
         <summary_macro/>
         <sys_class_name>item_option_new</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-06-09 10:55:25</sys_created_on>
-        <sys_id>bae177b9971321105515fef3a253af2f</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>Phone</sys_name>
-        <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
+        <sys_created_on>2023-06-09 10:57:09</sys_created_on>
+        <sys_id>3a7bf046975721105515fef3a253afbe</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Cost Deatil</sys_name>
+        <sys_package/>
         <sys_policy/>
         <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
-        <sys_update_name>item_option_new_bae177b9971321105515fef3a253af2f</sys_update_name>
+        <sys_update_name>item_option_new_3a7bf046975721105515fef3a253afbe</sys_update_name>
         <sys_updated_by>system</sys_updated_by>
         <sys_updated_on>2023-06-09 10:58:50</sys_updated_on>
         <table/>
         <tooltip/>
-        <type>6</type>
+        <type>19</type>
         <ui_page/>
         <unique>false</unique>
         <use_dynamic_default>false</use_dynamic_default>
@@ -101,22 +101,22 @@
         <visible_summary>true</visible_summary>
         <write_roles/>
     </item_option_new>
-    <sys_translated_text action="delete_multiple" query="documentkey=bae177b9971321105515fef3a253af2f"/>
-    <fx_price action="delete_multiple" query="id=bae177b9971321105515fef3a253af2f"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=3a7bf046975721105515fef3a253afbe"/>
+    <fx_price action="delete_multiple" query="id=3a7bf046975721105515fef3a253afbe"/>
     <fx_price action="INSERT_OR_UPDATE">
         <amount>0</amount>
         <currency display_value="USD">USD</currency>
         <field>price_if_checked</field>
-        <id>bae177b9971321105515fef3a253af2f</id>
+        <id>3a7bf046975721105515fef3a253afbe</id>
         <parent/>
         <reference_amount>0</reference_amount>
         <reference_currency display_value="USD">USD</reference_currency>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-06-09 05:35:46</sys_created_on>
-        <sys_id>b6e177b9971321105515fef3a253af32</sys_id>
+        <sys_created_on>2023-06-09 10:57:09</sys_created_on>
+        <sys_id>367bf046975721105515fef3a253afc1</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-09 05:35:46</sys_updated_on>
+        <sys_updated_on>2023-06-09 10:57:09</sys_updated_on>
         <table>item_option_new</table>
         <type>calculated</type>
     </fx_price>
@@ -124,16 +124,16 @@
         <amount>0</amount>
         <currency display_value="USD">USD</currency>
         <field>rec_price_if_checked</field>
-        <id>bae177b9971321105515fef3a253af2f</id>
+        <id>3a7bf046975721105515fef3a253afbe</id>
         <parent/>
         <reference_amount>0</reference_amount>
         <reference_currency display_value="USD">USD</reference_currency>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-06-09 05:35:46</sys_created_on>
-        <sys_id>3ee177b9971321105515fef3a253af31</sys_id>
+        <sys_created_on>2023-06-09 10:57:09</sys_created_on>
+        <sys_id>ba7bf046975721105515fef3a253afc0</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-09 05:35:46</sys_updated_on>
+        <sys_updated_on>2023-06-09 10:57:09</sys_updated_on>
         <table>item_option_new</table>
         <type>calculated</type>
     </fx_price>

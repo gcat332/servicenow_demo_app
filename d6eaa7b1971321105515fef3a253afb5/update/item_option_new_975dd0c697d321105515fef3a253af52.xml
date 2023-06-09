@@ -40,7 +40,7 @@
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
         <name>duration</name>
-        <order>1400</order>
+        <order>1600</order>
         <post_insert_script/>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
@@ -73,7 +73,7 @@
         <summary_macro/>
         <sys_class_name>item_option_new</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-06-09 08:45:47</sys_created_on>
+        <sys_created_on>2023-06-09 10:55:24</sys_created_on>
         <sys_id>975dd0c697d321105515fef3a253af52</sys_id>
         <sys_mod_count>2</sys_mod_count>
         <sys_name>Duration</sys_name>
@@ -82,7 +82,7 @@
         <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
         <sys_update_name>item_option_new_975dd0c697d321105515fef3a253af52</sys_update_name>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2023-06-09 08:46:11</sys_updated_on>
+        <sys_updated_on>2023-06-09 10:58:54</sys_updated_on>
         <table/>
         <tooltip/>
         <type>6</type>
