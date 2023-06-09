@@ -34,22 +34,22 @@
 }]]></script>
         <sys_class_name>catalog_script_client</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2023-06-09 06:03:39</sys_created_on>
+        <sys_created_on>2023-06-09 08:44:15</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>ab48ff71975321105515fef3a253afda</sys_id>
+        <sys_id>ff0dd88697d321105515fef3a253afdd</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>Revise User Info</sys_name>
         <sys_overrides/>
         <sys_package display_value="CarParkingReservation" source="x_1067756_carparki">d6eaa7b1971321105515fef3a253afb5</sys_package>
         <sys_policy/>
         <sys_scope display_value="CarParkingReservation">d6eaa7b1971321105515fef3a253afb5</sys_scope>
-        <sys_update_name>catalog_script_client_ab48ff71975321105515fef3a253afda</sys_update_name>
+        <sys_update_name>catalog_script_client_ff0dd88697d321105515fef3a253afdd</sys_update_name>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2023-06-09 06:04:57</sys_updated_on>
+        <sys_updated_on>2023-06-09 08:46:08</sys_updated_on>
         <table/>
         <type>onChange</type>
-        <ui_type>0</ui_type>
+        <ui_type>10</ui_type>
         <variable_set/>
         <view/>
     </catalog_script_client>
